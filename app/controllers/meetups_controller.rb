@@ -4,7 +4,7 @@ class MeetupsController < ApplicationController
 
   def create
     @meetup = Meetup.new(meetup_params)
-
+    byebug
     respond_to do |format|
       if @meetup.save
         format.html { redirect_to @meetup, notice: 'Meetup was successfully created.' }
@@ -19,6 +19,6 @@ class MeetupsController < ApplicationController
   private
 
   def meetup_params
-    params.require(:meetup).permit(:title, :description)
+    params.require(:meetup).permit(:title, :description, :date)
   end
 end
